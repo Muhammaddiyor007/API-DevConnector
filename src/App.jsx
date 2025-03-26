@@ -12,7 +12,6 @@ import Registration from './pages/register'
 import Header from './components/Header'
 import NotFound from './pages/not-found'
 
-// Protected route component
 const PrivateRoute = ({ element }) => {
   const { isToken } = useContext(AppContext)
   return isToken ? element : <Navigate to="/login" replace />
@@ -37,7 +36,6 @@ function App() {
           <Route path="/registration" element={<Registration />} />
           <Route path="/developers" element={<Developers />} />
           
-          {/* Protected Routes */}
           <Route path="/dashboard" element={<PrivateRoute element={<Dashboard />} />} />
           <Route path="/post" element={<PrivateRoute element={<Post />} />} />
           <Route path="/post/:id" element={<PrivateRoute element={<PostData />} />} />

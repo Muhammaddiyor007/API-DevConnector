@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import { FaUser } from 'react-icons/fa';
-import axios from '../axios/axios'; // Import Axios
+import axios from '../axios/axios'; 
 
 const EditProfile = () => {
     const [career, setCareer] = useState('');
     const [company, setCompany] = useState('');
     const [website, setWebsite] = useState('');
-    const [region, setRegion] = useState('');
+    const [location, setLocation] = useState('');
     const [skills, setSkills] = useState('');
     const [githubUsername, setGithubUsername] = useState('');
     const [bio, setBio] = useState('');
+    const [facebook, setFacebook] = useState('');
+    const [instagram, setInstagram] = useState('');
+    const [linkedin, setLinkedin] = useState('');
+    const [twitter, setTwitter] = useState('');
+    const [youtube, setYoutube] = useState('');
+
     const token = localStorage.getItem('token'); 
 
     const handleSubmit = (event) => {
@@ -19,14 +25,19 @@ const EditProfile = () => {
             career,
             company,
             website,
-            region,
+            location,
             skills,
             githubUsername,
-            bio
+            bio,
+            facebook,
+            instagram,
+            linkedin,
+            twitter,
+            youtube,
         };
 
         axios
-            .get('/api/profile/update', profileData, {
+            .post('/api/profile', profileData, {
                 headers: {
                     'x-auth-token': token
                 }
@@ -104,12 +115,12 @@ const EditProfile = () => {
                     <div>
                         <input
                             type="text"
-                            id="region"
-                            name="region"
-                            value={region}
-                            onChange={(e) => setRegion(e.target.value)}
+                            id="location"
+                            name="location"
+                            value={location}
+                            onChange={(e) => setLocation(e.target.value)}
                             className="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-                            placeholder="Region"
+                            placeholder="location"
                         />
                         <p className="text-sm text-gray-500 mt-2">
                             City & state suggested (e.g., Boston, MA)
@@ -159,6 +170,67 @@ const EditProfile = () => {
                             A short bio of yourself
                         </p>
                     </div>
+
+                    <div>
+    <input
+        type="text"
+        id="facebook"
+        name="facebook"
+        value={facebook}
+        onChange={(e) => setFacebook(e.target.value)}
+        className="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+        placeholder="Facebook link"
+    />
+</div>
+
+<div>
+    <input
+        type="text"
+        id="instagram"
+        name="instagram"
+        value={instagram}
+        onChange={(e) => setInstagram(e.target.value)}
+        className="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+        placeholder="Instagram link"
+    />
+</div>
+
+<div>
+    <input
+        type="text"
+        id="linkedin"
+        name="linkedin"
+        value={linkedin}
+        onChange={(e) => setLinkedin(e.target.value)}
+        className="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+        placeholder="LinkedIn link"
+    />
+</div>
+
+<div>
+    <input
+        type="text"
+        id="twitter"
+        name="twitter"
+        value={twitter}
+        onChange={(e) => setTwitter(e.target.value)}
+        className="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+        placeholder="Twitter link"
+    />
+</div>
+
+<div>
+    <input
+        type="text"
+        id="youtube"
+        name="youtube"
+        value={youtube}
+        onChange={(e) => setYoutube(e.target.value)}
+        className="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+        placeholder="YouTube link"
+    />
+</div>
+
 
                     <div className="flex gap-4">
                         <button

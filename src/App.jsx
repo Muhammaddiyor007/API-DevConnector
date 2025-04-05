@@ -11,6 +11,9 @@ import Profil from './pages/profil'
 import Registration from './pages/register'
 import Header from './components/Header'
 import NotFound from './pages/not-found'
+import EditProfile from './pages/EditProfile'
+import AddExperience from './pages/AddExperience'
+import AddEducation from './pages/AddEducation'
 
 const PrivateRoute = ({ element }) => {
   const { isToken } = useContext(AppContext)
@@ -35,6 +38,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/developers" element={<Developers />} />
+          <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/add-experience" element={<AddExperience />} />
+          <Route path="/add-education" element={<AddEducation />} />
           
           <Route path="/dashboard" element={<PrivateRoute element={<Dashboard />} />} />
           <Route path="/post" element={<PrivateRoute element={<Post />} />} />

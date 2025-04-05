@@ -30,19 +30,28 @@ function Dashboard() {
       <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg">
         <h1 className="text-4xl font-bold text-primary">Dashboard</h1>
         <p className="mt-2 text-lg flex items-center gap-2">
-          <FaUser className="text-gray-700" /> Welcome {userName || 'Loading...'}
+          <FaUser className="text-gray-700" /> Welcome Muhammaddiyor
         </p>
 
         <div className="flex gap-4 mt-4">
-          <button className="flex items-center gap-2 bg-gray-200 px-4 py-2 text-primary rounded-md shadow hover:bg-gray-300">
-            <FaUser /> Edit Profile
-          </button>
-          <button className="flex items-center gap-2 bg-gray-200 px-4 py-2 text-primary rounded-md shadow hover:bg-gray-300">
-            <FaPlus /> Add Experience
-          </button>
-          <button className="flex items-center gap-2 bg-gray-200 px-4 py-2 text-primary rounded-md shadow hover:bg-gray-300">
-          <FaGraduationCap /> Add Education
-          </button>
+            <Link to="/edit-profile">
+              <button className="flex items-center gap-2 bg-gray-200 px-4 py-2 text-primary rounded-md shadow hover:bg-gray-300">
+                <FaUser /> Edit Profile
+              </button>
+            </Link>
+
+            <Link to="/add-experience">
+              <button className="flex items-center gap-2 bg-gray-200 px-4 py-2 text-primary rounded-md shadow hover:bg-gray-300">
+                <FaPlus /> Add Experience
+              </button>
+            </Link>
+
+            <Link to="/add-education">
+              <button className="flex items-center gap-2 bg-gray-200 px-4 py-2 text-primary rounded-md shadow hover:bg-gray-300">
+                <FaGraduationCap /> Add Education
+              </button>
+            </Link>
+
         </div>
 
         <div className="mt-8">
